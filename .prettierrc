@@ -1,0 +1,23 @@
+{
+	"useTabs": true,
+	"singleQuote": true,
+	"trailingComma": "none",
+	"printWidth": 100,
+	"semi": false, 
+	"overrides": [
+		{
+			"files": ["*.ts", "*.js", "*.svelte"],
+			"options": {
+				"semi": false,
+				"parser": "typescript", 
+				"overrides": [
+					{
+						"files": ["*.svelte"],
+						"options": { "semi": true, "parser": "svelte" }
+					}
+				]
+			}
+		}
+	],
+	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"]
+}

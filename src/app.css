@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:wght@700&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	@apply m-0 box-border p-0;
+}
+body {
+	-webkit-tap-highlight-color: transparent;
+	font-family: 'Poppins', sans-serif;
+}
+
+.custom-btn {
+	@apply px-[26px] py-[18px] transition-all duration-500 ease-in-out;
+}
