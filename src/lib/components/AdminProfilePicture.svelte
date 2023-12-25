@@ -4,6 +4,7 @@
 	import { authStore, imageSrcStore } from '$lib/stores'
 	import Icon from '@iconify/svelte'
 	import Loader from './Loader.svelte'
+	import Toasts from './Toasts.svelte'
 
 	//props
 	export let userName: string
@@ -51,6 +52,20 @@
 			bioUpdateLoading = false
 		}
 	}
+	//copy link to clipboard
+	let textToCopy = `https://linkplant.pixmone.com/${userName}`
+	let toastClipboard = false
+
+	const copyToClipboard = () => {
+		toastClipboard = true
+		const textarea = document.createElement('textarea')
+		textarea.value = textToCopy
+		document.body.appendChild(textarea)
+		textarea.select()
+		document.execCommand('copy')
+		document.body.removeChild(textarea)
+		setTimeout(() => (toastClipboard = false), 1000)
+	}
 </script>
 
 <div class="flex flex-col items-center justify-center gap-y-6">
@@ -89,14 +104,29 @@
 	</div>
 	<!-- heading -->
 	<div>
-		<h3>Hello {userName}</h3>
+		<h3>Hello @{userName}</h3>
 		<p class="mt-3 max-w-[15rem] text-center text-sm">
 			Update your profile and share <a
 				target="_blank"
 				class="text-linkTree-bg2 underline"
 				href={`/${userName}`}>Your page</a
 			>
+			Or
 		</p>
+		<!-- copy to clipboard -->
+		<div class="my-4 flex w-[15rem] items-center justify-center gap-x-1">
+			<p class="text-center text-sm">Copy link :</p>
+			<button
+				on:click={copyToClipboard}
+				class="transition-transform duration-300 hover:scale-125 active:scale-90"
+				><Icon icon="solar:copy-bold-duotone" width="25" /></button
+			>
+		</div>
+
+		{#if toastClipboard}
+			<Toasts toastType="alert-success" message="Link Copied" />
+		{/if}
+
 		<p class="mt-3 flex max-w-[15rem] items-center justify-center gap-x-2 text-center text-sm">
 			Bio: {bio}<button on:click={() => document.getElementById('update-bio')?.showModal()}
 				><Icon
@@ -178,6 +208,6 @@
 
 <style lang="postcss">
 	h3 {
-		@apply text-center text-2xl font-bold capitalize;
+		@apply text-center text-2xl font-bold;
 	}
 </style>
