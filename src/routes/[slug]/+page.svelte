@@ -55,7 +55,6 @@
 		} finally {
 			loading = false
 		}
-		console.log(allAvailableLinks)
 	})
 	//profilePicture
 </script>
@@ -66,7 +65,7 @@
 	{/if}
 	{#if userData}
 		<main
-			class="relative flex h-full min-h-screen animate-fadeIn flex-col items-center justify-start gap-y-5 bg-[url('/bg-profile.jpeg')] bg-cover bg-fixed bg-center bg-no-repeat px-4 pt-20"
+			class="relative flex h-full min-h-screen animate-fadeIn flex-col items-center justify-start gap-y-5 bg-[url('/bg-profile.jpeg')] bg-cover bg-center bg-no-repeat px-4 pt-20"
 			in:fade={{ duration: 1000, delay: 200 }}
 		>
 			<!-- profile picture -->
