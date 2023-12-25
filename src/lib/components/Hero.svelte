@@ -22,9 +22,7 @@
 		</div>
 		<HeroUsername />
 	</div>
-	<div
-		class="flex animate-slideLeft justify-center py-14 md:-mt-32 md:items-start md:justify-end md:py-0"
-	>
+	<div class="mt-4 flex animate-slideLeft items-center justify-center md:-mt-16 md:items-start">
 		<img draggable="false" src="/hero-image.png" alt="hero" />
 	</div>
 </section>
