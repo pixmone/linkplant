@@ -80,9 +80,9 @@
 			</div>
 			<!-- bio -->
 			<div
-				class="flex animate-fadeIn flex-col items-center justify-center gap-y-2 rounded-xl bg-white/30 px-4 py-2 shadow backdrop-blur-md"
+				class="flex animate-fadeIn flex-col items-center justify-center gap-y-2 rounded-xl bg-white/30 px-6 py-3 shadow backdrop-blur-md"
 			>
-				<h1 class="font-heading text-3xl font-black capitalize">
+				<h1 class="font-heading text-4xl font-black capitalize">
 					{userData.userName}
 					<img class="-mt-1 inline w-6" src="/blue-tick.svg" alt="verified" draggable="false" />
 				</h1>
@@ -93,7 +93,7 @@
 				<div
 					class="flex animate-slideRight flex-col items-center justify-center gap-y-3 pb-20 pt-9"
 				>
-					<h3 class="mb-1 text-lg font-bold">My Socials</h3>
+					<h3 class="mb-1 text-xl font-bold">My Socials</h3>
 					{#each allAvailableLinks as link}
 						{#each Object.entries(link) as [platform, url]}
 							<PageLinkCard {platform} {url} />

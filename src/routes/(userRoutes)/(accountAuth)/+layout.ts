@@ -4,7 +4,6 @@ import { get } from 'svelte/store'
 
 export const load = () => {
 	const account = get(authStore)
-
 	if (account) {
 		throw redirect(307, '/admin')
 	}
